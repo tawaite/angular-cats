@@ -1,0 +1,19 @@
+{
+  "name": "angular-cat",
+  "version": "1.0.0",
+  "description": "An Angular app to demonstrate using the cat apip",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tawaite/angular-cats.git"
+  },
+  "author": "Tim Waite",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tawaite/angular-cats/issues"
+  },
+  "homepage": "https://github.com/tawaite/angular-cats#readme"
+}
