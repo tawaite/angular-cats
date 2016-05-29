@@ -23,8 +23,13 @@ gulp.task('bower-js', function() {
     .pipe(gulp.dest('dist/bower_components/'));
 })
 
+gulp.task('bower-css', function() {
+  return gulp.src('bower_components/**/*.css')
+    .pipe(gulp.dest('dist/bower_components/'));
+})
+
 gulp.task('serve', ['clean'], function() {
-  gulp.start('watch', 'bower-js', 'html', 'js');
+  gulp.start('watch', 'bower-js', 'bower-css', 'html', 'js');
 });
 
 gulp.task('watch', function() {

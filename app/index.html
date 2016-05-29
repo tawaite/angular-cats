@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
+    <!-- Bower CSS -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    
     <!-- Bower Components -->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
     
     <!-- App Components -->
     <script type="text/javascript" src="app.module.js"></script>
     <script type="text/javascript" src="app.route.js"></script>
+    <script type="text/javascript" src="cats-endpoints.factory.js"></script>
+    <script type="text/javascript" src="list/list.module.js"></script>
+    <script type="text/javascript" src="list/list.route.js"></script>
+    <script type="text/javascript" src="list/list.controller.js"></script>
+    
   </head>
   <body ng-app="app">
     <ui-view></ui-view>

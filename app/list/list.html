@@ -1,0 +1,17 @@
+<md-list flex ng-if="cats">
+  <md-list-item class="md-3-line" ng-repeat="cat in vm.cats">
+    <div class="md-list-item-text" layout="column">
+      <pre>{{cat | json}}</pre>
+    </div>
+  </md-list-item>
+</md-list>
+<div layout="row" layout-align="center center" ng-if="!cats">
+  <p class="md-body-1">
+    There are no cats.
+  </p>
+</div>
+<div layout="row" layout-align="end end">
+  <md-button class="md-fab" aria-label="Eat cake">
+    <md-icon md-font-icon="add-circle"></md-icon>
+  </md-button>
+</div>

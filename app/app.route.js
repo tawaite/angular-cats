@@ -5,14 +5,18 @@
     .module('app')
     .config(config);
     
-  function config($stateProvider, $urlRouterProvider) {
+  function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
     $stateProvider
       .state('root', {
         url: '/',
-        // abstract: true,
+        abstract: true,
         templateUrl: 'shell.html'
       });
       
-    $urlRouterProvider.otherwise('/');
+    $mdThemingProvider.theme('default')
+      .primaryPalette('light-blue')
+      .accentPalette('orange');
+      
+    $urlRouterProvider.otherwise('cats/');
   }
 })();
