@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect');
     
 gulp.task('clean', function() {
-  return del['dist/*']
+  return del(['dist/*']);
 });
 
 gulp.task('html', function() {
@@ -14,16 +14,22 @@ gulp.task('html', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src('app/**/*.js', 'bower_components/**/*.js')
+  return gulp.src('app/**/*.js')
     .pipe(gulp.dest('dist/'));
 })
 
+gulp.task('bower-js', function() {
+  return gulp.src('bower_components/**/*.js')
+    .pipe(gulp.dest('dist/bower_components/'));
+})
+
 gulp.task('serve', ['clean'], function() {
-  gulp.start('watch');
+  gulp.start('watch', 'bower-js', 'html', 'js');
 });
 
 gulp.task('watch', function() {
   gulp.watch('app/**/*.html', ['html']);
+  gulp.watch('app/**/*.js', ['js']);
   connect.server({
     root: 'dist',
     livereload: true
