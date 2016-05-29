@@ -13,6 +13,11 @@ gulp.task('html', function() {
     .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('js', function() {
+  return gulp.src('app/**/*.js', 'bower_components/**/*.js')
+    .pipe(gulp.dest('dist/'));
+})
+
 gulp.task('serve', ['clean'], function() {
   gulp.start('watch');
 });
