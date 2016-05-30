@@ -24,8 +24,9 @@
     }
     
     function submit() {
-      CatsResourceFactory.save(vm.form);
-      $mdDialog.hide();
+      CatsResourceFactory.save(vm.form, function() {
+        $mdDialog.hide();
+      });
     }
   }
 })();
