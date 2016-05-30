@@ -1,12 +1,10 @@
-<md-toolbar class="md-hue">
-  <div class="md-toolbar-tools">
-    <h2 ui-sref="root.list">
-      <span>Cat App</span>
-    </h2>
-  </div>
-</md-toolbar>
-<md-content layout-fill ui-view>
-  <div layout="row" layout-sm="column" layout-align="space-around">
-    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-  </div>
-</md-content>
+<div layout="column" layout-fill>
+  <md-toolbar class="md-hue">
+    <div class="md-toolbar-tools">
+      <h2 ui-sref="root.list">
+        <span>Cat App</span>
+      </h2>
+    </div>
+  </md-toolbar>
+  <md-content ui-view></md-content>
+</div>

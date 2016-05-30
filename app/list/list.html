@@ -1,26 +1,21 @@
-<md-list flex ng-if="vm.cats.length">
+<md-list flex ng-if="vm.cats.length" flex-offset-gt-sm="30" flex-gt-sm="40">
   <md-list-item class="md-3-line" ng-repeat="cat in vm.cats" ui-sref="root.detail({id: cat._id})">
     <img class="md-avatar" ng-src="{{cat.image}}" ng-if="cat.image"/>
     <img class="md-avatar" ng-src="img/cat-avatar.png" ng-if="!cat.image"/>
     <div class="md-list-item-text" layout="column">
       <h3>{{ cat.name }}</h3>
       <h4>Age: {{ cat.age }}</h4>
-      <h4>{{ cat.adoptionFee }}</h4>
+      <h4>Adoption Fee: {{ cat.adoptionFee | currency:$ }}</h4>
       <!--<md-chips ng-model="cat.likes" readonly="true"></md-chips>
       <md-chips ng-model="cat.dislikes" readonly="true"></md-chips>-->
     </div>
   </md-list-item>
 </md-list>
-<md-card ng-repeat="cat in vm.cats" flex-gt-sm="50" flex-gt-xs="80" flex-offset-gt-sm="25" flex-offset-gt-xs="10">
-  {{cat.name}}
-</md-card>
 <div layout="row" layout-align="center center" ng-if="!vm.cats.length">
   <p class="md-body-1">
     There are no cats.
   </p>
 </div>
-<div layout="row" layout-align="end end">
-  <md-button class="md-fab" aria-label="Add cat" ng-click="vm.showAddCatPrompt($event)">
-    <md-icon md-font-icon="add-circle"></md-icon>
-  </md-button>
-</div>
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add cat" ng-click="vm.showAddCatPrompt($event)">
+  <md-icon md-svg-src="img/add.svg"></md-icon>
+</md-button>

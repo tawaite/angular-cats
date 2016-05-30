@@ -5,13 +5,14 @@
     .module('app.detail')
     .controller('DetailController', DetailController);
 
-  DetailController.$inject = ['cat', '$mdDialog', '$state'];
+  DetailController.$inject = ['$mdDialog', '$state', '$stateParams', 'CatsResourceFactory', 'cat'];
   
-  function DetailController(cat, $mdDialog, $state) {
+  function DetailController($mdDialog, $state, $stateParams, CatsResourceFactory, cat) {
     var vm = this;
     
     vm.cat = cat;
     vm.editCatDialog = editCatDialog;
+    vm.adoptCatPrompt = adoptCatPrompt;
     
     function editCatDialog($event) {
       console.log('editing');
@@ -27,6 +28,24 @@
         }
       }).then(function() {
         $state.reload();
+      });
+    }
+    
+    function adoptCatPrompt(ev) {
+      console.log('yeah adoptions!');
+      var confirm = $mdDialog.confirm()
+        .title('Are you ready to adopt the cat?')
+        .textContent('This will remove them from the adoption list.')
+        .targetEvent(ev)
+        .ok('Adopt now')
+        .cancel('Cancel');
+        
+        console.log()
+        
+      $mdDialog.show(confirm).then(function() {
+        CatsResourceFactory.delete($stateParams, function() {
+          $state.go('root.list');
+        });
       });
     }
   }

@@ -4,8 +4,8 @@
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{vm.cat.name}}</span>
-          <span class="md-subhead"><strong>Age:</strong> {{vm.cat.age}} years</span>
-          <span class="md-subhead"><strong>Adoption Fee:</strong> {{vm.cat.adoptionFee | currency:"$"}}</span>
+          <span class="md-subhead"><strong>Age:</strong> {{vm.cat.age || '-'}}</span>
+          <span class="md-subhead"><strong>Adoption Fee:</strong> {{(vm.cat.adoptionFee | currency:"$") || '-'}}</span>
         </md-card-title-text>
         <md-card-title-media>
           <div class="md-media-lg card-media">
@@ -17,13 +17,15 @@
       <md-card-content>
         <label>Likes</label>
         <md-chips ng-model="vm.cat.likes" readonly="true"></md-chips>
+        <p flex-offset="5" ng-if="!vm.cat.likes.length">This cat has no likes in the database.</p>
         <br>
         <label>Dislikes</label>
         <md-chips ng-model="vm.cat.dislikes" readonly="true"></md-chips>
+        <p flex-offset="5" ng-if="!vm.cat.dislikes.length">This cat has no likes in the database.</p>
       </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
         <md-button class="md-primary" ng-click="vm.editCatDialog($event)">Edit</md-button>
-        <md-button class="md-raised md-primary">Adopt</md-button>
+        <md-button class="md-raised md-primary" ng-click="vm.adoptCatPrompt($event)">Adopt</md-button>
       </md-card-actions>
     </md-card>
   </div>
