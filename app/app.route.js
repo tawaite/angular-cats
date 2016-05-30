@@ -5,7 +5,7 @@
     .module('app')
     .config(config);
     
-  function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+  function config($stateProvider, $urlRouterProvider, $mdThemingProvider, $resourceProvider) {
     $stateProvider
       .state('root', {
         url: '/',
@@ -13,10 +13,12 @@
         templateUrl: 'shell.html'
       });
       
+    $urlRouterProvider.otherwise('cats/');
+      
     $mdThemingProvider.theme('default')
       .primaryPalette('light-blue')
       .accentPalette('orange');
       
-    $urlRouterProvider.otherwise('cats/');
+    $resourceProvider.defaults.stripTrailingSlashes = false;
   }
 })();

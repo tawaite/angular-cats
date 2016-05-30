@@ -1,0 +1,37 @@
+<md-dialog aria-label="Add Cat Modal" flex="50">
+  <md-dialog-content>
+    <form layout="column" layout-padding ng-submit="vm.submit()">
+      <h1 class="md-title">
+        Add a cat
+      </h1>
+      <md-input-container>
+        <label>Name</label>
+        <input ng-model="vm.form.name">
+      </md-input-container>
+      <md-input-container>
+        <label>Age</label>
+        <input type="number" ng-model="vm.form.age">
+      </md-input-container>
+      <md-input-container>
+        <label>Adoption Fee</label>
+        <input type="number" ng-model="vm.form.adoptionFee">
+      </md-input-container>
+      <md-input-container>
+        <label>Image Url</label>
+        <input ng-model="vm.form.imageUrl">
+      </md-input-container>
+      <md-input-container>
+        <label>Likes</label>
+        <md-chips ng-model="vm.form.likes"></md-chips>
+      </md-input-container>
+      <md-input-container>
+        <label>Dislikes</label>
+        <md-chips ng-model="vm.form.dislikes"></md-chips>
+      </md-input-container>
+      <md-dialog-actions>
+        <md-button class="md-primary">Cancel</md-button>
+        <md-button class="md-raised md-primary" type="submit">Add</md-button>
+      </md-dialog-actions>
+    </form>
+  </md-dialog-content>
+</md-dialog>

@@ -5,19 +5,21 @@
     .module('app')
     .factory('CatsEndpointsFactory', CatsEndpointsFactory);
 
-  CatsEndpointsFactory.$inject = ['$http'];
+  CatsEndpointsFactory.$inject = ['$http', '$resource'];
   
-  function CatsEndpointsFactory($http) {
-    var apiUrl = 'http://localhost:9000/api/';
+  function CatsEndpointsFactory($http, $resource) {
+    // var apiUrl = 'http://localhost:9000/api/';
     
-    var exports = {
-      getCats: getCats
-    };
+    // var exports = {
+    //   getAllCats: getAllCats,
+    //   cat: $resource(apiUrl + 'cats/:id')
+    // };
     
-    return exports;
+    // return exports;
     
-    function getCats() {
-      return $http.get(apiUrl + 'cats');
-    }
+    // function getAllCats() {
+    //   return $http.get(apiUrl + 'cats');
+    // }
+    return $resource('http://localhost:9000/api/cats');
   }
 })();

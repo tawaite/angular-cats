@@ -14,9 +14,7 @@
         controllerAs: 'vm',
         resolve: {
           'cats': function(CatsEndpointsFactory) {
-            return CatsEndpointsFactory.getCats().then(function(response) {
-              return response.data;
-            });
+            return CatsEndpointsFactory.query();
           }
         }
       });
