@@ -38,8 +38,9 @@
         image: vm.form.image,
         likes: vm.form.likes,
         dislikes: vm.form.dislikes
+      }, function() {
+        $mdDialog.hide();
       });
-      $mdDialog.hide();
     }
   }
 })();
