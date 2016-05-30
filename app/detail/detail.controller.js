@@ -5,14 +5,22 @@
     .module('app.detail')
     .controller('DetailController', DetailController);
 
-  DetailController.$inject = ['$mdDialog', '$state', '$stateParams', 'CatsResourceFactory', 'cat'];
+  DetailController.$inject = ['$mdDialog', '$state', '$stateParams', 'CatsResourceFactory'];
   
-  function DetailController($mdDialog, $state, $stateParams, CatsResourceFactory, cat) {
+  function DetailController($mdDialog, $state, $stateParams, CatsResourceFactory) {
     var vm = this;
     
-    vm.cat = cat;
     vm.editCatDialog = editCatDialog;
     vm.adoptCatPrompt = adoptCatPrompt;
+    
+    activate();
+    
+    function activate() {
+      vm.loading = true;
+      vm.cat = CatsResourceFactory.get($stateParams, function() {
+        vm.loading = false;
+      });
+    }
     
     function editCatDialog($event) {
       console.log('editing');

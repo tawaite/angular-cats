@@ -11,12 +11,7 @@
         url: 'cats/',
         templateUrl: 'list/list.html',
         controller: 'ListController',
-        controllerAs: 'vm',
-        resolve: {
-          'cats': function(CatsResourceFactory) {
-            return CatsResourceFactory.query();
-          }
-        }
+        controllerAs: 'vm'
       });
   }
 })();

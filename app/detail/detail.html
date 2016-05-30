@@ -1,5 +1,8 @@
-<div layout="row">
-  <div flex flex-offset-gt-xs="15">
+<div layout="row" layout-sm="column" layout-align="center center" layout-fill ng-show="vm.loading">
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div layout="row" layout-align="center center">
+  <div flex flex-offset-gt-xs="15" ng-hide="vm.loading">
     <md-card>
       <md-card-title>
         <md-card-title-text>

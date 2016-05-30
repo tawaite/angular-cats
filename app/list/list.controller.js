@@ -5,16 +5,22 @@
     .module('app.list')
     .controller('ListController', ListController);
 
-  ListController.$inject = ['cats', '$mdDialog', '$state'];
+  ListController.$inject = ['$mdDialog', '$state', 'CatsResourceFactory'];
   
-  function ListController(cats, $mdDialog, $state) {
+  function ListController($mdDialog, $state, CatsResourceFactory) {
     var vm = this;
-    
-    //variables
-    vm.cats = cats;
     
     //functions
     vm.showAddCatPrompt = showAddCatPrompt;
+    
+    activate();
+    
+    function activate() {
+      vm.loading = true;
+      vm.cats = CatsResourceFactory.query(function() {
+        vm.loading = false;
+      })
+    }
     
     function showAddCatPrompt($event) {
       $mdDialog.show({
