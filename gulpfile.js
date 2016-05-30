@@ -13,6 +13,11 @@ gulp.task('html', function() {
     .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('images', function() {
+  return gulp.src('img/*.{png,jpg}')
+    .pipe(gulp.dest('dist/img/'));
+});
+
 gulp.task('js', function() {
   return gulp.src('app/**/*.js')
     .pipe(gulp.dest('dist/'));
@@ -29,7 +34,7 @@ gulp.task('bower-css', function() {
 })
 
 gulp.task('serve', ['clean'], function() {
-  gulp.start('watch', 'bower-js', 'bower-css', 'html', 'js');
+  gulp.start('watch', 'bower-js', 'bower-css', 'html', 'js', 'images');
 });
 
 gulp.task('watch', function() {

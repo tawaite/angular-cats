@@ -16,7 +16,7 @@
     $urlRouterProvider.otherwise('cats/');
       
     $mdThemingProvider.theme('default')
-      .primaryPalette('light-blue')
+      .primaryPalette('blue')
       .accentPalette('orange');
       
     $resourceProvider.defaults.stripTrailingSlashes = false;

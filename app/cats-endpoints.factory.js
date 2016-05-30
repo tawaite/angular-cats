@@ -3,23 +3,13 @@
 
   angular
     .module('app')
-    .factory('CatsEndpointsFactory', CatsEndpointsFactory);
+    .factory('CatsResourceFactory', CatsResourceFactory);
 
-  CatsEndpointsFactory.$inject = ['$http', '$resource'];
+  CatsResourceFactory.$inject = ['$http', '$resource'];
   
-  function CatsEndpointsFactory($http, $resource) {
-    // var apiUrl = 'http://localhost:9000/api/';
-    
-    // var exports = {
-    //   getAllCats: getAllCats,
-    //   cat: $resource(apiUrl + 'cats/:id')
-    // };
-    
-    // return exports;
-    
-    // function getAllCats() {
-    //   return $http.get(apiUrl + 'cats');
-    // }
-    return $resource('http://localhost:9000/api/cats');
+  function CatsResourceFactory($http, $resource) {
+    return $resource('http://localhost:9000/api/cats/:id', null, {
+      'update': { method: 'PUT' }
+    });
   }
 })();

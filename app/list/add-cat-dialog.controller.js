@@ -5,28 +5,26 @@
     .module('app.list')
     .controller('AddCatDialogController', AddCatDialogController);
 
-  AddCatDialogController.$inject = ['CatsEndpointsFactory', '$mdDialog'];
+  AddCatDialogController.$inject = ['CatsResourceFactory', '$mdDialog'];
   
-  function AddCatDialogController(CatsEndpointsFactory, $mdDialog) {
+  function AddCatDialogController(CatsResourceFactory, $mdDialog) {
     var vm = this;
     
+    vm.isCreateModal = true;
     vm.form = {
-      likes: [],
-      dislikes: []
-    }
+        likes: [],
+        dislikes: []
+    };
     
     vm.submit = submit;
-
-    activate();
-
-    function activate() {
-      
+    vm.cancel = cancel;
+    
+    function cancel() {
+      $mdDialog.cancel();
     }
     
     function submit() {
-      console.log(CatsEndpointsFactory.$save);
-      console.log('submit');
-      CatsEndpointsFactory.save(vm.form);
+      CatsResourceFactory.save(vm.form);
       $mdDialog.hide();
     }
   }

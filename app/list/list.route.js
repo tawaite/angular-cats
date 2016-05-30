@@ -5,7 +5,7 @@
     .module('app.list')
     .config(config);
     
-  function config($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+  function config($stateProvider) {
     $stateProvider
       .state('root.list', {
         url: 'cats/',
@@ -13,8 +13,8 @@
         controller: 'ListController',
         controllerAs: 'vm',
         resolve: {
-          'cats': function(CatsEndpointsFactory) {
-            return CatsEndpointsFactory.query();
+          'cats': function(CatsResourceFactory) {
+            return CatsResourceFactory.query();
           }
         }
       });

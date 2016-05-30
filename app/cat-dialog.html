@@ -29,8 +29,9 @@
         <md-chips ng-model="vm.form.dislikes"></md-chips>
       </md-input-container>
       <md-dialog-actions>
-        <md-button class="md-primary">Cancel</md-button>
-        <md-button class="md-raised md-primary" type="submit">Add</md-button>
+        <md-button class="md-primary" ng-click="vm.cancel()">Cancel</md-button>
+        <md-button class="md-raised md-primary" type="submit" ng-if="vm.isCreateModal">Add</md-button>
+        <md-button class="md-raised md-primary" type="submit" ng-if="!vm.isCreateModal">Save</md-button>
       </md-dialog-actions>
     </form>
   </md-dialog-content>

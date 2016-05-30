@@ -1,0 +1,31 @@
+<div layout="row">
+  <div flex flex-offset-gt-xs="15">
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.cat.name}}</span>
+          <span class="md-subhead"><strong>Age:</strong> {{vm.cat.age}} years</span>
+          <span class="md-subhead"><strong>Adoption Fee:</strong> {{vm.cat.adoptionFee | currency:"$"}}</span>
+        </md-card-title-text>
+        <md-card-title-media>
+          <div class="md-media-lg card-media">
+            <img ng-src="{{vm.cat.image}}" ng-if="vm.cat.image"/>
+            <img ng-src="img/cat-avatar.png" ng-if="!vm.cat.image"/>
+          </div>
+        </md-card-title-media>
+      </md-card-title>
+      <md-card-content>
+        <label>Likes</label>
+        <md-chips ng-model="vm.cat.likes" readonly="true"></md-chips>
+        <br>
+        <label>Dislikes</label>
+        <md-chips ng-model="vm.cat.dislikes" readonly="true"></md-chips>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-primary" ng-click="vm.editCatDialog($event)">Edit</md-button>
+        <md-button class="md-raised md-primary">Adopt</md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+  <div flex-offset-gt-xs="15"></div>
+</div>

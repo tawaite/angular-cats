@@ -7,6 +7,7 @@
     'ngResource',
     'ngAria',
     'ngMaterial',
-    'app.list'
+    'app.list',
+    'app.detail'
   ]);
 })();

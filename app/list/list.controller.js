@@ -16,18 +16,12 @@
     //functions
     vm.showAddCatPrompt = showAddCatPrompt;
     
-    activate();
-
-    function activate() {
-      console.log('ListController activated');
-    }
-    
     function showAddCatPrompt($event) {
       $mdDialog.show({
         targetEvent: $event,
         clickOutsideToClose: true,
         parent: angular.element(document.body),
-        templateUrl: 'list/add-cat-dialog.html',
+        templateUrl: 'cat-dialog.html',
         controller: 'AddCatDialogController',
         controllerAs: 'vm'
       }).then(function() {
