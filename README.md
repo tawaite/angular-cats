@@ -9,6 +9,6 @@ This application requires [https://www.npmjs.com/](npm) and [http://bower.io/](b
 
 To run the application run the following commands:
 
-```npm install\n
-bower install\n
-gulp serve```
+`npm install`
+`bower install`
+`gulp serve`
