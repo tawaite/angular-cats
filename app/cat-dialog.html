@@ -1,32 +1,32 @@
 <md-dialog aria-label="Add Cat Modal" flex-xs="100" flex-sm="80" flex-md="50" flex-lg="30">
   <md-dialog-content>
-    <form layout="column" layout-padding ng-submit="vm.submit()">
+    <form layout="column" layout-padding ng-submit="vm.submit()" ng-hide="vm.loading" name="form">
       <h1 class="md-title">
         Add a cat
       </h1>
       <md-input-container>
         <label>Name</label>
-        <input ng-model="vm.form.name">
+        <input ng-model="vm.cat.name" required name="name">
       </md-input-container>
       <md-input-container>
         <label>Age</label>
-        <input type="number" ng-model="vm.form.age">
+        <input type="number" ng-model="vm.cat.age">
       </md-input-container>
       <md-input-container>
         <label>Adoption Fee</label>
-        <input type="number" step="0.01" ng-model="vm.form.adoptionFee">
+        <input type="number" step="0.01" ng-model="vm.cat.adoptionFee" required>
       </md-input-container>
       <md-input-container>
         <label>Image Url</label>
-        <input ng-model="vm.form.image">
+        <input ng-model="vm.cat.image">
       </md-input-container>
       <md-input-container>
         <label>Likes</label>
-        <md-chips ng-model="vm.form.likes"></md-chips>
+        <md-chips ng-model="vm.cat.likes"></md-chips>
       </md-input-container>
       <md-input-container>
         <label>Dislikes</label>
-        <md-chips ng-model="vm.form.dislikes"></md-chips>
+        <md-chips ng-model="vm.cat.dislikes"></md-chips>
       </md-input-container>
       <md-dialog-actions>
         <md-button class="md-primary" ng-click="vm.cancel()">Cancel</md-button>
@@ -34,5 +34,7 @@
         <md-button class="md-raised md-primary" type="submit" ng-if="!vm.isCreateModal">Save</md-button>
       </md-dialog-actions>
     </form>
-  </md-dialog-content>
+    <div layout="row" layout-sm="column" layout-align="space-around" ng-show="vm.loading">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
 </md-dialog>

@@ -10,10 +10,10 @@
   function EditCatDialogController($mdDialog, $state, $stateParams, CatsResourceFactory, cat) {
     var vm = this;
     
-    vm.form = {
+    vm.cat = {
       likes: [],
       dislikes: []
-    }
+    };
     
     vm.submit = submit;
     vm.cancel = cancel;
@@ -21,8 +21,8 @@
     activate();
     
     function activate() {
-      _.assign(vm.form, cat);
-      console.log(vm.form);
+      _.assign(vm.cat, cat);
+      console.log(vm.cat);
     }
     
     function cancel() {
@@ -30,14 +30,15 @@
     }
     
     function submit() {
+      vm.loading = true;
       CatsResourceFactory.update($stateParams, {
-        _id: vm.form._id,
-        name: vm.form.name,
-        age: vm.form.age,
-        adoptionFee: vm.form.adoptionFee,
-        image: vm.form.image,
-        likes: vm.form.likes,
-        dislikes: vm.form.dislikes
+        _id: vm.cat._id,
+        name: vm.cat.name,
+        age: vm.cat.age,
+        adoptionFee: vm.cat.adoptionFee,
+        image: vm.cat.image,
+        likes: vm.cat.likes,
+        dislikes: vm.cat.dislikes
       }, function() {
         $mdDialog.hide();
       });

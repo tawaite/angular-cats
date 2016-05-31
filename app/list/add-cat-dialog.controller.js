@@ -11,7 +11,7 @@
     var vm = this;
     
     vm.isCreateModal = true;
-    vm.form = {
+    vm.cat = {
         likes: [],
         dislikes: []
     };
@@ -24,7 +24,8 @@
     }
     
     function submit() {
-      CatsResourceFactory.save(vm.form, function() {
+      vm.loading = true;
+      CatsResourceFactory.save(vm.cat, function() {
         $mdDialog.hide();
       });
     }

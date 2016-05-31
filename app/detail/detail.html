@@ -20,11 +20,11 @@
       <md-card-content>
         <label>Likes</label>
         <md-chips ng-model="vm.cat.likes" readonly="true"></md-chips>
-        <p flex-offset="5" ng-if="!vm.cat.likes.length">This cat has no likes in the database.</p>
+        <p flex-offset="5" ng-if="!vm.cat.likes.length">This cat has no likes listed.</p>
         <br>
         <label>Dislikes</label>
         <md-chips ng-model="vm.cat.dislikes" readonly="true"></md-chips>
-        <p flex-offset="5" ng-if="!vm.cat.dislikes.length">This cat has no likes in the database.</p>
+        <p flex-offset="5" ng-if="!vm.cat.dislikes.length">This cat has no dislikes listed.</p>
       </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
         <md-button class="md-primary" ng-click="vm.editCatDialog($event)">Edit</md-button>
