@@ -1,14 +1,14 @@
 # Angular Cats
 This is an application to consume the API endpoints from the [https://github.com/prestonvanloon/cat-api](cat api)
 
-### Dependencies
+## Dependencies
 
 This application requires [https://www.npmjs.com/](npm) and [http://bower.io/](bower)
 
-### Running the application
+## Running the application
 
 To run the application run the following commands:
 
-`npm install`
-`bower install`
-`gulp serve`
+`npm install`<br>
+`bower install`<br>
+`gulp serve`<br>
